@@ -14,18 +14,26 @@ import Register from './src/Register';
 import QuestionSelect from './src/Question/QuestionSelect';
 import Demo from './src/Question/Demo';
 import Demo2 from './src/Question/Demo2';
+import Demo3 from './src/Question/Demo3';
+import { Provider } from 'react-redux';
+import store from './Store';
+import Animation from './src/Animation';
 
 
 function App(): JSX.Element {
 
   return (
+    <Provider store={store}>
     <SafeAreaView>
-      {/* <Login/> */}
+      {/* <Login/>  */}
       {/* <Register /> */}
       {/* <QuestionSelect /> */}
       {/* <Demo /> */}
-      <Demo2 />
+      {/* <Demo2 /> */}
+      {/* <Demo3 /> */}
+      <Animation />
     </SafeAreaView>
+    </Provider>
   );
 }
 

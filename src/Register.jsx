@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from "react-native";
 import Input from "./Input";
 import Date from "./Register/Date";
 import Email from "./Register/Email";
@@ -76,26 +76,21 @@ const Register = () => {
         setMale(false);
         setFemale(false);
     }
+    const { height, width } = useWindowDimensions();
 
     return (
         <View style={styles.root}>
             <View style={styles.innerRoot}>
                 <ScrollView style={{ flex: 1 }}>
-
-                    {/* <Name /> */}
-                    <Input styles={styles.nmInput} placeholder='Enter Your Full Name..' />
-                    {/* <Phone /> */}
-                    <Input styles={styles.nmInput} placeholder='Enter Your Number...' len={10} vstyle={styles.vInStyle} keyType="decimal-pad" />
-                    {/* <Email /> */}
-                    <Input styles={emailValid ? styles.nmInput : styles.errorInput} vstyle={styles.vInStyle} placeholder='Enter Email' change={onChangeHandler} />
-                    {/* <Password /> */}
-                    <Input styles={pass ? styles.nmInput : styles.errorInput} password={true} vstyle={styles.vInStyle} placeholder='Create New Password' change={passHandle} />
+                    <View style={[{flex: 1},width > height && {flexDirection: 'row', justifyContent: 'space-around'}]}>
+                        <Input styles={[styles.nmInput, width > height && {marginRight: 10}]} placeholder='Enter Your Full Name..' />
+                        <Input styles={[styles.nmInput, width > height && {marginLeft: 10}]} placeholder='Enter Your Number...' len={10} vstyle={styles.vInStyle} keyType="decimal-pad" />
+                    </View>
+                    <View style={[{flex: 1},width > height && {flexDirection: 'row', justifyContent: 'space-around'}]}>
+                        <Input styles={[emailValid ? styles.nmInput : styles.errorInput,width > height && {marginRight: 10}]} vstyle={styles.vInStyle} placeholder='Enter Email' change={onChangeHandler} />
+                        <Input styles={[pass ? styles.nmInput : styles.errorInput, width > height && {marginLeft: 10}]} password={true} vstyle={styles.vInStyle} placeholder='Create New Password' change={passHandle} />
+                    </View>
                     <Input styles={cpass ? styles.nmInput : styles.errorInput} password={true} vstyle={styles.vInStyle} placeholder='Re-Enter Password' change={confirmPassHandle} />
-                    {/* <Input styles={styles.nmInput} placeholder={date} vstyle={styles.vInStyle} change={showDate} /> */}
-
-                    {/* <TouchableOpacity>
-                        <Text>Select Date</Text>
-                    </TouchableOpacity> */}
                     <View style={{ marginTop: "7%" }}>
                         <Text>Gender: </Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }}>
@@ -128,7 +123,7 @@ const Register = () => {
 
                     <MultiSel />
 
-                   
+
                 </ScrollView>
             </View>
         </View>
@@ -151,6 +146,7 @@ const styles = StyleSheet.create({
         padding: "5%",
     },
     nmInput: {
+        flex: 1,
         borderBottomWidth: 2,
         borderColor: "#33FFE9",
         paddingTop: "5%",
