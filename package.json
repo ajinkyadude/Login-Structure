@@ -16,6 +16,7 @@
     "react-native-calendars": "^1.1294.0",
     "react-native-element-dropdown": "^2.8.1",
     "react-native-multiple-select": "^0.5.12",
+    "react-native-paper": "^5.5.1",
     "react-native-picker-select": "^8.0.4",
     "react-native-social-buttons": "^1.2.0",
     "react-native-vector-icons": "^9.2.0",

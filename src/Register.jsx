@@ -117,7 +117,7 @@ const Register = () => {
                     <Input
                         mulLine={true}
                         num={4}
-                        styles={{ borderWidth: 2, height: 100, marginTop: 20 }}
+                        styles={{ borderWidth: 2, height: 100, marginTop: 20, borderColor: '#33FFE9' }}
                         placeholder="Enter Notes.." />
                     <SingleSelect />
 
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         borderColor: "#33FFE9",
         paddingTop: "5%",
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     vInStyle: {
         paddingTop: "5%"
