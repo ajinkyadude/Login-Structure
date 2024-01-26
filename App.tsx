@@ -21,6 +21,7 @@ function App(): JSX.Element {
 
     <SafeAreaView>
       <Login/> 
+      
       {/* <Register /> */}
       {/* <Animation /> */}
     </SafeAreaView>
